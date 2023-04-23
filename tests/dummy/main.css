@@ -1,0 +1,6 @@
+/* This is the main entry css file,
+   which uses the tailwindcss directives,
+   we want to make sure the twc components get inserted in this file only */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -1,0 +1,12 @@
+{
+  "root": true,
+  "extends": "eslint-config-airbnb-base",
+  "overrides": [
+    {
+      "files": ["tests/**"],
+      "plugins": ["jest"],
+      "extends": ["eslint-config-airbnb-base", "plugin:jest/recommended"],
+      "rules": { "jest/prefer-expect-assertions": "off" }
+    }
+  ]
+}
