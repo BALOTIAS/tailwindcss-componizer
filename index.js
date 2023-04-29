@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { resolve } = require('path');
 const fastGlob = require('fast-glob');
-const { scrapeComponents, logIssuesOfComponents } = require('./utils/components');
+const { scrapeComponents, warnComponentIssues } = require('./utils/components');
 const { transformComponentsToCss, wrapCssWithComponentsLayer } = require('./utils/css');
 const { shouldPrependCss } = require('./utils/postcss');
 
@@ -16,11 +16,14 @@ function applyOptions(options = {}) {
   const transformComponentsToCssFunction = options.transformComponentsToCssFunction
     || transformComponentsToCss;
 
+  const appendCss = options.appendCss || false;
+
   return {
     content,
     scrapeComponentsFunction,
     scrapeComponentsFunctionOptions,
     transformComponentsToCssFunction,
+    appendCss,
   };
 }
 
@@ -33,9 +36,10 @@ module.exports = (options = {}) => {
     scrapeComponentsFunction,
     scrapeComponentsFunctionOptions,
     transformComponentsToCssFunction,
+    appendCss,
   } = applyOptions(options);
 
-  function scrapeAllComponents() {
+  function scrapeComponentsFromFiles(postcss) {
     const filesToScrapeComponentsFrom = fastGlob.sync(content);
     let scrapedComponents = {};
 
@@ -49,7 +53,7 @@ module.exports = (options = {}) => {
       );
     });
 
-    logIssuesOfComponents(scrapedComponents);
+    warnComponentIssues(postcss, scrapedComponents);
 
     return scrapedComponents;
   }
@@ -60,24 +64,30 @@ module.exports = (options = {}) => {
      * 1. Only run the TailwindCSS Componizer if the root css is a main TailwindCSS entry file.
      * 2. Scrape all components from the files specified in the content option.
      * 3. Transform the components to css.
-     * 4. Prepend the css to the root css.
+     * 4. Prepend/Append the css to the root css.
      * 5. ???
      * 6. Profit!
      *
      * @param root
+     * @param postcss
      * @constructor
      */
-    Once(root) {
+    Once(root, postcss) {
       // Only run the TailwindCSS Componizer if the root css is a main TailwindCSS entry file,
-      // otherwise we might duplicate the components.
+      // otherwise we might duplicate the components as the stylesheet
+      // might be imported in the entry file or another.
       if (!shouldPrependCss(root)) {
         return;
       }
 
-      const scrapedComponents = scrapeAllComponents();
-      const css = transformComponentsToCssFunction(scrapedComponents);
+      const scrapedComponents = scrapeComponentsFromFiles(postcss);
 
-      if (css) {
+      const css = transformComponentsToCssFunction(scrapedComponents);
+      if (!css) return;
+
+      if (appendCss) {
+        root.append(wrapCssWithComponentsLayer(css));
+      } else {
         root.prepend(wrapCssWithComponentsLayer(css));
       }
     },
