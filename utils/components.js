@@ -14,6 +14,14 @@ function applyOptions(options = {}) {
 }
 
 /**
+ * @typedef {Object} TWComponent
+ * @property {string} selector
+ * @property {string[]} classes
+ * @property {string} file
+ * @property {string[]} duplicatedInFiles
+ */
+
+/**
  * Scrape all components from content.
  * 1. Find all twc identifier/classes.
  * 2. Walk through and extract components from the twc identifiers and applies classes to them.
@@ -21,11 +29,12 @@ function applyOptions(options = {}) {
  *       Also convert the twc identifier to a valid CSS selector.
  *  2.2. Append the classes which will be applied to the component.
  * 3. Return the components object.
+ *
  * @param file
  * @param content
  * @param components
  * @param options
- * @returns {{}}
+ * @returns {[TWComponent, TWComponent, TWComponent, TWComponent]}
  */
 function scrapeComponents(file, content, components = {}, options = {}) {
   const extractedComponents = components;
