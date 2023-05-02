@@ -4,9 +4,14 @@
   "description": "PostCSS plugin to create & extract tailwindcss components directly out of template files.",
   "keywords": [
     "postcss",
-    "css",
     "postcss-plugin",
-    "tailwindcss-componizer"
+    "tailwindcss",
+    "tailwindcss-componizer",
+    "componizer",
+    "layers",
+    "components",
+    "layered-components",
+    "css"
   ],
   "scripts": {
     "publish": "clean-publish",
