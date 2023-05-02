@@ -1,3 +1,4 @@
-# Change Log
+# Changelog
 
-This project adheres to [Semantic Versioning](http://semver.org/).
+## v0.0.1
+Hello World! This is the first release of the `@balotias/tailwindcss-componizer` PostCSS plugin.

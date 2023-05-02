@@ -1,6 +1,8 @@
-# TailwindCSS Componizer
+# TailwindCSS Componizer ♪♪ ヽ(ˇ∀ˇ )ゞ
 
-[![npm version](https://badge.fury.io/js/tailwindcss-componizer.svg)](https://badge.fury.io/js/tailwindcss-componizer)
+[![Downloads](https://img.shields.io/npm/dt/tailwindcss-componizer.svg)](https://img.shields.io/npm/dt/tailwindcss-componizer.svg)
+[![Latest Release](https://img.shields.io/npm/v/tailwindcss-componizer)](https://img.shields.io/npm/v/tailwindcss-componizer)
+[![License](https://img.shields.io/npm/l/tailwindcss-componizer)](https://img.shields.io/npm/l/tailwindcss-componizer)
 
 TWC is a [PostCSS](https://github.com/postcss/postcss) plugin which allows you to write TailwindCSS components directly in your template without the need to create or modify separate CSS files or plugins.
 
@@ -14,7 +16,7 @@ Suppose you have the following component:
 
 The plugin will output this CSS by appending or prepending it to a TailwindCSS entry file:
 
-```css
+```scss
 @layer components {
   /* ...other components... */
   .twc\/button { @apply bg-blue-500 text-white p-4 rounded; }
@@ -142,3 +144,7 @@ The main pain point for me was the inability to create TailwindCSS components di
 ### Why is option a/b/c missing?
 
 Open an issue and let me know! :))
+
+### How can I contribute?
+
+Check out the [contributing guidelines](CONTRIBUTING.md)!

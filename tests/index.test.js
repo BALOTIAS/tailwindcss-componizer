@@ -24,6 +24,7 @@ describe('TWC extracts and adds components as expected', () => {
     expect(result.css).not.toContain(expectedDummyButtonOutput);
   });
 
+  // eslint-disable-next-line jest/expect-expect
   it('should prepend the custom twc to the main entry css', async () => {
     await expectCssOutput(
       tailwindCSSEntry,
@@ -37,6 +38,7 @@ describe('TWC extracts and adds components as expected', () => {
     );
   });
 
+  // eslint-disable-next-line jest/expect-expect
   it('should append the custom twc to the main entry css', async () => {
     await expectCssOutput(
       tailwindCSSEntry,

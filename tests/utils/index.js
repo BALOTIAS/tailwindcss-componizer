@@ -1,5 +1,6 @@
-const postcss = require("postcss");
-const plugin = require("../../index");
+const postcss = require('postcss');
+const plugin = require('../../index');
+
 const tailwindCSSEntry = `
 @tailwind base;
 @tailwind components;

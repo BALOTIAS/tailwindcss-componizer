@@ -1,6 +1,6 @@
 {
   "name": "tailwindcss-componizer",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "PostCSS plugin to create & extract tailwindcss components directly out of template files.",
   "keywords": [
     "postcss",
@@ -9,7 +9,9 @@
     "tailwindcss-componizer"
   ],
   "scripts": {
-    "test": "jest --coverage && eslint ./tests"
+    "build": "clean-publish",
+    "test": "jest --coverage && eslint ./tests",
+    "style": "eslint ."
   },
   "author": "Matthias Balota <matthias@balota.studio>",
   "license": "MIT",
