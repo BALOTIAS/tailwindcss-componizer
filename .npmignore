@@ -7,4 +7,8 @@ yarn.lock
 .travis.yml
 .github
 .editorconfig
+.eslintrc
 coverage/
+.idea/
+tests/
+.vscode/

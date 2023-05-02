@@ -9,7 +9,7 @@
     "tailwindcss-componizer"
   ],
   "scripts": {
-    "build": "clean-publish",
+    "publish": "clean-publish",
     "test": "jest --coverage && eslint ./tests",
     "style": "eslint ."
   },
