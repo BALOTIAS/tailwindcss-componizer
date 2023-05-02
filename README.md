@@ -1,8 +1,8 @@
 # TailwindCSS Componizer ♪♪ ヽ(ˇ∀ˇ )ゞ
 
-[![Downloads](https://img.shields.io/npm/dt/tailwindcss-componizer.svg)](https://img.shields.io/npm/dt/tailwindcss-componizer.svg)
-[![Latest Release](https://img.shields.io/npm/v/tailwindcss-componizer)](https://img.shields.io/npm/v/tailwindcss-componizer)
-[![License](https://img.shields.io/npm/l/tailwindcss-componizer)](https://img.shields.io/npm/l/tailwindcss-componizer)
+[![Downloads](https://img.shields.io/npm/dt/tailwindcss-componizer.svg)](https://www.npmjs.com/package/tailwindcss-componizer)
+[![Latest Release](https://img.shields.io/npm/v/tailwindcss-componizer)](https://www.npmjs.com/package/tailwindcss-componizer)
+[![License](https://img.shields.io/npm/l/tailwindcss-componizer)](https://github.com/balotias/tailwindcss-componizer/blob/master/LICENSE)
 
 TWC is a [PostCSS](https://github.com/postcss/postcss) plugin which allows you to write TailwindCSS components directly in your template without the need to create or modify separate CSS files or plugins.
 
